@@ -8,14 +8,17 @@ function oooify() {
     let url = ooo.encodeUrl(input.value)
     url = `${location.protocol}//${domain}/${url}`
 
-    output.innerHTML = `<a href="${url}">${url}</a><br><p>Copied to clipboard!</p>`
+    document.getElementById("output-div").classList.remove("d-none")
 
-    copy(url)
+    output.innerHTML = url
+    output.setAttribute("href", url)
+
+    input.value = ""
 }
 
-function copy(str) {
+function copy() {
     const el = document.createElement('textarea');
-    el.value = str;
+    el.value = output.innerHTML;
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');

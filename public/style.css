@@ -1,0 +1,84 @@
+:root {
+    --bright: #ffde03;
+    --light: #fff3a8;
+    --dark: #100700;
+    --fs: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --br: 5px;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    font-weight: 300;
+    background-color: var(--bright);
+    font-family: var(--fs);
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+input,
+input:focus,
+input:focus-visible,
+.form-control,
+button {
+    outline: none;
+    font-family: var(--fs);
+    background-color: var(--light);
+    border: 1px var(--dark);
+    border-radius: var(--br);
+}
+
+.form-control {
+    /* ovverride also :focus and :active */
+    background-color: var(--light) !important;
+    box-shadow: none !important;
+
+    font-size: 1.4em;
+    padding: 1em !important;
+}
+
+button {
+    border-radius: var(--br);
+    background-color: var(--dark);
+    color: var(--light);
+    margin: 1px;
+    cursor: pointer;
+
+    transition: 0.1s ease-in-out all;
+}
+button:hover {
+    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.22);
+    transform: translate(-2px, -2px);
+}
+
+.ooo-button {
+    font-weight: 800;
+    width: 4em;
+}
+
+.copy-button {
+    font-weight: 800;
+    padding: 0.5em;
+}
+
+#output-div {
+    margin-top: 3em;
+}
+
+#output-div a,
+#output-div a:hover,
+#output-div a:active {
+    color: inherit;
+}

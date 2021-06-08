@@ -5,26 +5,42 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>ooooooooooooooooooooooo.ooo</title>
 
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" /> -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon.min.css" />
+
+        <link rel="stylesheet" href="/style.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;800&display=block" rel="stylesheet" />
+
         <script src="/ooo.js?v=1.0.0" defer></script>
         <script src="/index.js?v=1.0.0" defer></script>
     </head>
-    <body class="dark-mode">
+    <body>
         <div class="container">
             <div class="content">
-                <h1>ooooooooooooooooooooooo.ooo</h1>
+                <h1>Looooooooooooooooooooooonger</h1>
                 <div class="d-flex">
                     <input
                         type="text"
                         class="form-control w-full mr-10"
                         id="input-url"
-                        placeholder="lengthen your url!"
+                        placeholder="Lengthen your url!"
                         autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        spellcheck="false"
                     />
-                    <button class="btn btn-primary" onclick="oooify()">oOo</button>
+                    <button class="ooo-button" onclick="oooify()">oOo</button>
                 </div>
-                <div id="output-url" style="word-wrap: break-word"></div>
+                <div id="output-div" class="d-none">
+                    <h2 class="mb-10">Yooour new url:</h2>
+                    <div style="word-wrap: break-word; font-size: 1.2em">
+                        <a id="output-url" target="_blank"></a>
+                    </div>
+                    <button class="copy-button mt-20" onclick="copy()">Cooopy</button>
+                </div>
             </div>
         </div>
+        <footer></footer>
     </body>
 </html>
