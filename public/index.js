@@ -1,7 +1,13 @@
 if (location.pathname.length > 4) {
     let redirect = new OOO().decodeUrl(decodeURI(location.pathname.replace("/", "")))
-    location.href = redirect
+    // location.href = redirect
     console.log(redirect);
+
+    let metaEl = document.createElement('meta')
+    metaEl.httpEquiv = 'refresh'
+    metaEl.content = '0;url=' + redirect
+    document.head.appendChild(metaEl);
+
 }
 
 function oooify() {
