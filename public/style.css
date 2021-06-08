@@ -18,6 +18,19 @@ body {
     font-family: var(--fs);
 }
 
+/* footer sticky */
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+div.container {
+    flex: 1;
+}
+
+/* end footer */
+
 h1 {
     font-weight: 800;
     font-size: 4em;
