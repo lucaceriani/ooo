@@ -5,15 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>ooooooooooooooooooooooo.ooo</title>
 
-        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" /> -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon.min.css" />
 
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;800&display=block" rel="stylesheet" />
 
         <link rel="stylesheet" href="/style.css?v=1.0.3" />
-        <script src="/ooo.js?v=1.0.3" defer></script>
-        <script src="/index.js?v=1.0.3" defer></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.1/dist/tippy-bundle.umd.min.js"></script>
+
+        <script src="/ooo.js?v=1.0.4" defer></script>
+        <script src="/index.js?v=1.0.4" defer></script>
     </head>
     <body>
         <div class="container">
@@ -24,7 +27,7 @@
                         type="text"
                         class="form-control w-full mr-10"
                         id="input-url"
-                        placeholder="Lengthen your url!"
+                        placeholder="Lengthen your URL!"
                         autocomplete="off"
                         autocorrect="off"
                         autocapitalize="off"
@@ -37,7 +40,7 @@
                     <div style="word-wrap: break-word; font-size: 1.2em">
                         <a id="output-url" target="_blank"></a>
                     </div>
-                    <button class="copy-button mt-20" onclick="copy()">Cooopy</button>
+                    <button class="copy-button mt-20" id="copy-button" onclick="copy()">Cooopy</button>
                 </div>
             </div>
         </div>
@@ -59,5 +62,7 @@
                 >lucaceriani</a
             >
         </footer>
+
+        <!-- additional scripts -->
     </body>
 </html>
