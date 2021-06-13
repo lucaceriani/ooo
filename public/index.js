@@ -1,6 +1,9 @@
 const input = document.getElementById("input-url")
 const output = document.getElementById("output-url")
 
+// init
+input.addEventListener("keydown", e => e.code == "Enter" ? oooify() : null)
+
 // make tooltips
 tippy(
     "#copy-button",
@@ -13,10 +16,16 @@ tippy(
 
 function oooify() {
 
+    if (window.inBlinking) return
+
     try {
         new URL(input.value)
     } catch (e) {
+
+        window.inBlinking = true
+
         input.style.opacity = 1
+        input.disabled = true
 
         let oldValue = input.value
         input.value = "Invalid URL! Noooooooooooo"
@@ -27,6 +36,9 @@ function oooify() {
             if (++times == 6) {
                 clearInterval(i)
                 input.value = oldValue
+                input.disabled = false
+                input.focus()
+                inBlinking = false
             }
         }, 100)
         return
