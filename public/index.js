@@ -8,7 +8,7 @@ input.addEventListener("keydown", e => e.code == "Enter" ? oooify() : null)
 tippy(
     "#copy-button",
     {
-        content: "Copied to clipboard!",
+        content: "Cooopied tooo clipboooard!",
         trigger: "click",
         animation: "shift-away-subtle"
     }
