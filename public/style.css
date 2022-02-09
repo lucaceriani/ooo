@@ -7,6 +7,41 @@
     --br: 5px;
 }
 
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1em;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.input-url {
+    width: 100%;
+    margin-right: 1em;
+    display: inline-block;
+    padding: 0.6em 0.8em;
+}
+
+a {
+    text-decoration: underline;
+    color: inherit;
+}
+
+footer {
+    text-align: center;
+    margin: 1.5em 0;
+    font-size: 80%;
+}
+
 html {
     overflow-x: hidden;
 }
@@ -25,6 +60,7 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
+
 div.container {
     flex: 1;
 }
@@ -37,7 +73,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 1.5em;
     font-weight: 800;
 }
 
@@ -51,6 +87,11 @@ button {
     background-color: var(--light);
     border: 1px var(--dark);
     border-radius: var(--br);
+    font-size: 1.2em;
+}
+
+::placeholder {
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .form-control {
@@ -68,30 +109,65 @@ button {
     color: var(--light);
     margin: 1px;
     cursor: pointer;
-
     transition: 0.1s ease-in-out all;
 }
+
 button:hover {
     box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.22);
     transform: translate(-2px, -2px);
 }
 
-.ooo-button {
+#ooo-button {
     font-weight: 800;
     width: 4em;
 }
 
-.copy-button {
+#copy-button {
     font-weight: 800;
     padding: 0.5em;
+    margin-top: 2em;
 }
 
 #output-div {
     margin-top: 3em;
 }
 
-#output-div a,
-#output-div a:hover,
-#output-div a:active {
-    color: inherit;
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 1em 0.5em;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 1;
+
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip[data-showme] .tooltip-text {
+    visibility: visible;
+}
+
+.tooltip .tooltip-text::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
 }

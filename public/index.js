@@ -1,18 +1,26 @@
-const input = document.getElementById("input-url")
-const output = document.getElementById("output-url")
+const input = document.getElementById("input-url");
+const output = document.getElementById("output-url");
+const oooBtn = document.getElementById("ooo-button");
+const copyBtn = document.getElementById("copy-button");
 
 // init
 input.addEventListener("keydown", e => e.code == "Enter" ? oooify() : null)
 
-// make tooltips
-tippy(
-    "#copy-button",
-    {
-        content: "Cooopied tooo clipboooard!",
-        trigger: "click",
-        animation: "shift-away-subtle"
-    }
-)
+// mouse enter listener
+
+let oooBtnInt;
+
+oooBtn.addEventListener("mouseenter", () => oooBtnInt = setInterval(() => {
+    console.log("a");
+    if (oooBtn.innerText == "oOo") oooBtn.innerText = "OoO";
+    else oooBtn.innerText = "oOo";
+}, 200));
+
+oooBtn.addEventListener("mouseleave", () => {
+    clearInterval(oooBtnInt);
+    // oooBtn.innerText = "oOo";
+});
+
 
 function oooify() {
 
@@ -28,11 +36,16 @@ function oooify() {
         input.disabled = true
 
         let oldValue = input.value
-        input.value = "Invalid URL! Noooooooooooo"
+        input.value = "Invalid URL! Noooooooooooo D:"
 
         let times = 0
+
         let i = setInterval(async () => {
-            input.style.opacity = (parseInt(input.style.opacity) + 1) % 2
+            if (parseInt(input.style.opacity) == 1)
+                input.style.opacity = 0.2;
+            else
+                input.style.opacity = 1;
+
             if (++times == 6) {
                 clearInterval(i)
                 input.value = oldValue
@@ -40,21 +53,22 @@ function oooify() {
                 input.focus()
                 inBlinking = false
             }
-        }, 100)
+        }, 150)
         return
     }
 
-    const domain = location.host
+    const domain = location.host;
 
-    let url = new OOO().encodeUrl(input.value.trim())
-    url = `${location.protocol}//${domain}/${url}`
+    let url = new OOO().encodeUrl(input.value.trim());
+    url = `${location.protocol}//${domain}/${url}`;
 
-    document.getElementById("output-div").classList.remove("d-none")
+    // show the output div
+    document.getElementById("output-div").style.display = "block";
 
-    output.innerHTML = url
-    output.setAttribute("href", url)
+    output.innerHTML = url;
+    output.setAttribute("href", url);
 
-    input.value = ""
+    input.value = "";
 }
 
 function copy() {
@@ -65,6 +79,6 @@ function copy() {
     document.execCommand('copy');
     document.body.removeChild(el);
 
-    setTimeout(() => tippy.hideAll(), 2000)
-
+    copyBtn.parentNode.setAttribute("data-showme", "");
+    setTimeout(() => copyBtn.parentNode.removeAttribute("data-showme"), 1000);
 };
